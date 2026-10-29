@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffcf5">
+  <meta name="description" content="选个分类，看看菜名，让小运气帮你决定今天吃什么。">
+  <title>今天吃什么 · 选一道好好吃饭</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="今天吃什么，回到首页">
+        <img src="./favicon.svg" alt="" width="30" height="30">
+        <h1>今天吃什么<span class="brand-dot">.</span></h1>
+      </a>
+      <span class="header-note">好好吃饭 <span aria-hidden="true">☺</span></span>
+    </header>
+
+    <nav class="picker" aria-label="食物范围">
+      <div id="scopes" class="scope-tabs" role="group" aria-label="选择食物范围"></div>
+    </nav>
+
+    <main class="workspace">
+      <aside class="category-rail" aria-label="菜品分类">
+        <div id="categories" class="category-list" role="group" aria-label="选择菜品分类"></div>
+      </aside>
+      <section class="dish-section" aria-labelledby="category-title" aria-busy="true" tabindex="0" aria-label="当前分类菜名，可滚动浏览">
+        <div class="dish-heading">
+          <div class="heading-line"><h2 id="category-title">准备菜单中<span class="count" id="dish-count">…</span></h2><span class="menu-hint" aria-hidden="true">慢慢选，好好吃</span></div>
+          <p id="category-description">正在准备今天的菜单</p>
+        </div>
+        <div id="dish-grid" class="dish-grid"></div>
+        <p id="empty-message" class="empty-message" hidden></p>
+        <p class="list-end">已经到底啦，试试随机选一道 <span aria-hidden="true">↙</span></p>
+      </section>
+    </main>
+
+    <div class="draw-dock" id="draw-dock">
+      <div class="result-copy"><span id="result-eyebrow">选一个分类</span><p id="result-text">不知道吃什么？交给小运气</p></div>
+      <button class="draw-button" id="draw-button" disabled><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/></svg><span id="button-label">菜单准备中…</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+    </div>
+  </div>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+</body>
+</html>
